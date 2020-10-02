@@ -13,11 +13,11 @@
                         @endif
                         <div class="form-group">
                             <label>Category</label>
-                            <input type="text" class="form-control" name="category" required>
-                            <!-- <select class="form-control" name="category" required>
-                                <option value="DRAFT">Draft</option>
-                                <option value="PUBLISHED">Published</option>
-                            </select> -->
+                            <select class="form-control" name="category_id" required>
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}" {{ ($category->id == $category_id) ? 'selected' : '' }}>{{ $category->category_name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Todo</label>
@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group">
                             <label>Order</label>
-                            <input type="integer" class="form-control" name="todo" >
+                            <input type="integer" class="form-control" name="todo_order" >
                         </div>
                         <input type="submit" value="Submit" class="btn btn-primary btn-block">    
                     </form>

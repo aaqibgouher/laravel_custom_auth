@@ -21,10 +21,14 @@ Route::middleware(["check_login_user"])->group(function(){
 
     Route::get("/", "HomeController@index")->name("home");
     Route::get("/user_profile", "UserController@profile")->name("user_profile");
+
+    // category
     Route::get("/add_category", "CategoryController@add")->name("add_category");
     Route::post("/add_category", "CategoryController@add");
-    Route::get("/add_todo", "TodoController@add")->name("add_todo");
-    Route::post("/add_todo", "TodoController@add");
+
+    // todo
+    Route::get("/add_todo/{category_id?}", "TodoController@add")->name("todo_add");
+    Route::post("/add_todo/{category_id?}", "TodoController@add");
 });
 
 
