@@ -40,7 +40,7 @@ class AuthController extends Controller
 
                 $user = User::where("email", $email)->first();
                 if(!$user) throw new Exception("Email does not exist.");
-                if(!Hash::check($password, $user->password)) throw new Exception("Password is incorrect.");
+                if(!Hash::check($password, $user->password)) throw new Exception("Correct Email and Password is reqired.");
                 $user_id = $user->id;
 
                 $user = User::find($user_id);

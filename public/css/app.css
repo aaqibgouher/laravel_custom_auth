@@ -8333,3 +8333,7 @@ button.close {
   }
 }
 
+.wrap {
+  word-break: break-all;
+}
+
